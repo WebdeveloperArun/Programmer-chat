@@ -13,7 +13,7 @@ export default function ServerList({
   <div className="flex flex-col items-center space-y-2 w-full">
    {/* Owned Servers */}
    <div className="mb-4 w-full">
-    <h3 className="text-xs text-gray-400 mb-2 text-center">Your Servers</h3>
+    <h3 className="text-xs text-gray-500 mb-2 text-center">Your Servers</h3>
     {ownedServers.map((server) => (
      <ServerButton
       key={server.id}
@@ -25,11 +25,11 @@ export default function ServerList({
    </div>
 
    {/* Separator */}
-   <div className="w-full border-t border-gray-600 my-2"></div>
+   <div className="w-full border-t border-gray-300 my-2"></div>
 
    {/* Joined Servers */}
    <div className="w-full">
-    <h3 className="text-xs text-gray-400 mb-2 text-center">Joined Servers</h3>
+    <h3 className="text-xs text-gray-500 mb-2 text-center">Joined Servers</h3>
     {joinedServers.map((server) => (
      <ServerButton
       key={server.id}

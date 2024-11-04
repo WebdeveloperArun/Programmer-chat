@@ -2,7 +2,8 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import Layout from "./components/Common/Layout";
 import Navbar from "./components/Common/Navbar.jsx";
 
@@ -60,10 +61,8 @@ export default function App() {
    profileImage: "/placeholder.svg",
   },
  ]);
- const [selectedServer, setSelectedServer] = useState(ownedServers[0]);
- const [selectedChannel, setSelectedChannel] = useState(
-  ownedServers[0].channels[0]
- );
+ const [selectedServer, setSelectedServer] = useState(null);
+ const [selectedChannel, setSelectedChannel] = useState(null);
  const [messages, setMessages] = useState({
   1: [
    {
@@ -92,13 +91,44 @@ export default function App() {
  const [searchQuery, setSearchQuery] = useState("");
  const [showSearchResults, setShowSearchResults] = useState(false);
 
+ const { serverId, channelId } = useParams();
+ const navigate = useNavigate();
+
+ useEffect(() => {
+  const server = allServers.find((s) => s.id === serverId);
+  if (server) {
+   setSelectedServer(server);
+   const channel = server.channels.find((c) => c.id === channelId);
+   if (channel) {
+    setSelectedChannel(channel);
+   } else if (server.channels.length > 0) {
+    setSelectedChannel(server.channels[0]);
+    navigate(`/servers/${server.id}/channels/${server.channels[0].id}`);
+   }
+  } else if (allServers.length > 0) {
+   const firstServer = allServers[0];
+   setSelectedServer(firstServer);
+   setSelectedChannel(firstServer.channels[0]);
+   navigate(`/servers/${firstServer.id}/channels/${firstServer.channels[0].id}`);
+  }
+ }, [serverId, channelId, allServers, navigate]);
+
  // Event Handlers (Design Only)
  const handleServerSelect = (server, isOwned) => {
-  // TODO: Implement server selection functionality
+  setSelectedServer(server);
+  if (server.channels.length > 0) {
+   setSelectedChannel(server.channels[0]);
+   navigate(`/servers/${server.id}/channels/${server.channels[0].id}`);
+  } else {
+   navigate(`/servers/${server.id}/channels/`);
+  }
  };
 
  const handleChannelSelect = (channel) => {
-  // TODO: Implement channel selection functionality
+  setSelectedChannel(channel);
+  if (selectedServer) {
+   navigate(`/servers/${selectedServer.id}/channels/${channel.id}`);
+  }
  };
 
  const handleSendMessage = (e) => {

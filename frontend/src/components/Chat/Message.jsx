@@ -6,11 +6,11 @@ export default function Message({ message }) {
  return (
   <div className="mb-4">
    {/* Message User */}
-   <div className="font-semibold text-gray-300">{message.user}</div>
+   <div className="font-semibold text-gray-600">{message.user}</div>
    {/* Message Content */}
-   <div className="text-gray-100">{message.content}</div>
+   <div className="text-gray-900">{message.content}</div>
    {/* Message Timestamp */}
-   <div className="text-xs text-gray-400">
+   <div className="text-xs text-gray-500">
     {new Date(message.timestamp).toLocaleString()}
    </div>
   </div>

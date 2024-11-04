@@ -4,15 +4,15 @@ import React from "react";
 
 export default function Navbar() {
  return (
-  <nav className="bg-gray-800 p-4 flex items-center justify-between">
+  <nav className="bg-gray-100 p-4 flex items-center justify-between">
    {/* Logo or Title */}
    <div className="flex items-center space-x-4">
-    <h1 className="text-xl font-bold text-white">ProgrammerChat</h1>
+    <h1 className="text-xl font-bold text-gray-900">ProgrammerChat</h1>
     {/* Search Bar */}
     <div className="relative">
      {/* Search Icon */}
      <svg
-      className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"
+      className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-600"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -29,7 +29,7 @@ export default function Navbar() {
      <input
       type="text"
       placeholder="Search servers"
-      className="pl-10 pr-4 py-2 rounded bg-gray-700 text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      className="pl-10 pr-4 py-2 rounded bg-gray-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
       // TODO: Add onChange handler for search functionality
      />
     </div>
@@ -37,7 +37,7 @@ export default function Navbar() {
    {/* Action Buttons */}
    <div className="flex items-center space-x-4">
     {/* Create Server Button */}
-    <button className="flex items-center bg-gray-700 hover:bg-gray-600 text-gray-100 px-3 py-2 rounded">
+    <button className="flex items-center bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-2 rounded">
      {/* Plus Icon */}
      <svg
       className="h-4 w-4 mr-2"
@@ -56,7 +56,7 @@ export default function Navbar() {
      Create Server
     </button>
     {/* Logout Button */}
-    <button className="flex items-center bg-gray-700 hover:bg-gray-600 text-gray-100 px-3 py-2 rounded">
+    <button className="flex items-center bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-2 rounded">
      {/* Logout Icon */}
      <svg
       className="h-4 w-4 mr-2"

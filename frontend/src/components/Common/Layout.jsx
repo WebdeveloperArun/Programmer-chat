@@ -16,7 +16,7 @@ export default function Layout({
  onSendMessage,
 }) {
  return (
-  <div className="flex flex-col h-screen bg-gray-900 text-gray-100">
+  <div className="flex flex-col h-screen bg-gray-100 text-gray-900">
    {/* Navbar Component */}
    <Navbar />
 
@@ -34,7 +34,7 @@ export default function Layout({
     {/* Main Chat Area */}
     <ChatArea
      selectedChannel={selectedChannel}
-     messages={messages[selectedChannel.id] || []}
+     messages={messages[selectedChannel?.id] || []}
      onSendMessage={onSendMessage}
     />
    </div>

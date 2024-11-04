@@ -16,7 +16,7 @@ export default function ChannelList({
     <ChannelButton
      key={channel.id}
      channel={channel}
-     isSelected={channel.id === selectedChannel.id}
+     isSelected={channel.id === selectedChannel?.id}
      onClick={() => onChannelSelect(channel)}
     />
    ))}
@@ -25,7 +25,7 @@ export default function ChannelList({
    {isOwned && (
     <div className="mt-4 flex space-x-2">
      {/* Add Channel Button */}
-     <button className="flex items-center bg-gray-700 hover:bg-gray-600 text-gray-100 px-2 py-1 rounded">
+     <button className="flex items-center bg-gray-200 hover:bg-gray-300 text-gray-800 px-2 py-1 rounded">
       {/* Plus Icon */}
       <svg
        className="h-4 w-4 mr-1"
@@ -44,7 +44,7 @@ export default function ChannelList({
       Add
      </button>
      {/* Delete Channel Button */}
-     <button className="flex items-center bg-red-600 hover:bg-red-700 text-gray-100 px-2 py-1 rounded">
+     <button className="flex items-center bg-red-300 hover:bg-red-400 text-gray-800 px-2 py-1 rounded">
       {/* Trash Icon */}
       <svg
        className="h-4 w-4 mr-1"
